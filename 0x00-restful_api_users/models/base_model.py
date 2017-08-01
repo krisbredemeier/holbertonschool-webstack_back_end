@@ -8,6 +8,6 @@ class BaseModel():
     created_at = None
     updated_at = None
     def __init__(self):
-        self._id = uuid4()
-        self._created_at = datetime.utcnow()
-        self._updated_at = datetime.utcnow()
+        self.id = uuid4()
+        self.created_at = datetime.utcnow()
+        self.updated_at = datetime.utcnow()
