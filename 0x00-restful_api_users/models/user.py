@@ -23,3 +23,11 @@ class User(BaseModel):
     def display_name(self):
         if self.email and self.first_name and self.last_name == None:
             return ''
+        if self.first_name and self.last_name == None:
+            return self.email
+        if self.last_name == None:
+            return self.first_name
+        if self.first_name == None:
+            return self.last_name
+        else:
+            return (self.first_name, self.last_name)
