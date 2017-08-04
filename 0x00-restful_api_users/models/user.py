@@ -19,3 +19,7 @@ class User(BaseModel):
     first_name = None
     last_name = None
     _password = None
+
+    def display_name(self):
+        if self.email and self.first_name and self.last_name == None:
+            return ''
