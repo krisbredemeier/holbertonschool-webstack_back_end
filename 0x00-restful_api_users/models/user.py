@@ -21,13 +21,13 @@ class User(BaseModel):
     _password = None
 
     def display_name(self):
-        if self.email and self.first_name and self.last_name == None:
+        if self.email == None and self.first_name == None and self.last_name == None:
             return ''
-        if self.first_name and self.last_name == None:
+        if self.first_name == None and self.last_name == None:
             return self.email
         if self.last_name == None:
             return self.first_name
         if self.first_name == None:
             return self.last_name
         else:
-            return (self.first_name, self.last_name)
+            return self.first_name, self.last_name
