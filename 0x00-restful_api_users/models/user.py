@@ -18,10 +18,4 @@ class User(BaseModel):
     email = None
     first_name = None
     last_name = None
-    __password = None
-
-    def __init__(self):
-        self.email = 
-        self.first_name =
-        self.last_name =
-        self.__password =
+    _password = None
