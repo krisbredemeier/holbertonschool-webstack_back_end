@@ -20,6 +20,12 @@ class TestUser(unittest.TestCase):
         self.assertNotEqual(self.my_user.first_name, None)
         #check if last name exists
         self.assertNotEqual(self.my_user.last_name, None)
+        #check if password exists
+        self.assertNotEqual(self.my_user._password, None)
+
+    def testPwd(self):
+        #check if pwd is equal to self.password
+        self.assertTrue(self.my_user.pwd, self.password)
 
 if __name__ == '___main__':
     unittest.main()
