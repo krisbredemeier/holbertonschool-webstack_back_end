@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
 import hashlib
+import datetime
+
 
 '''
 Write a class User that defines the user model:
@@ -57,3 +59,9 @@ class User(BaseModel):
             return True
         else:
             return False
+
+    # returns a serializable representation
+    # (dictionary of integers and strings) of an User instance:
+    def to_dict(self):
+        User = {'id':self.id, 'email':self.email, 'first_name':self.first_name, 'last_name':self.last_name, 'created_at':self.created_at, 'updated_at':self.updated_at}
+        return User
