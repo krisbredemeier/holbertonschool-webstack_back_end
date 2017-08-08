@@ -30,10 +30,10 @@ class User(BaseModel):
         if self.first_name == None:
             return self.last_name
         else:
-            return self.first_name, self.last_name
+            return '{0} {1}'.format(self.first_name, self.last_name)
 
     def __str__(self):
-        return super(User, self).__str__()
+        return '{0} {1} - {2} - {3}'.format('[User]', self.id, self.email, self.display_name())
 
     # @setter
     # def get_password(self):
