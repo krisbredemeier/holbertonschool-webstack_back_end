@@ -31,3 +31,13 @@ class User(BaseModel):
             return self.last_name
         else:
             return self.first_name, self.last_name
+
+    def __str__(self):
+        return super(User, self).__str__()
+
+    # @setter
+    # def get_password(self):
+    #     return self.__password
+    #
+    # @getter
+    # def set_password(self, password):
