@@ -51,10 +51,9 @@ class User(BaseModel):
     # validates that the value passed is the clear
     # version of the password of a User instance
     def is_valid_password(self, pwd):
-        if pwd == None or pwd =! str or self._password == None:
+        if pwd == None or type(pwd) != str or self._password == None:
             return False
-        pwd = hashlib.md5(value.encode("utf8")).hexdigest()
-        if pwd == self._password:
+        if hashlib.md5(pwd.encode("utf8")).hexdigest() == self.password:
             return True
         else:
             return False
