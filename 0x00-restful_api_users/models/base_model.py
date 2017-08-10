@@ -23,12 +23,27 @@ from uuid import *
 
 Base = declarative_base()
 
+
 # define basemodel
 class BaseModel(object):
 
-    id = Column(Integer, unique=True, nullable=False, primary_key=True)
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
-    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow(), onupdate=datetime.utcnow())
+    id = Column(
+        Integer,
+        unique=True,
+        nullable=False,
+        primary_key=True
+    )
+    created_at = Column(
+        DateTime,
+        nullable=False,
+        default=datetime.utcnow()
+    )
+    updated_at = Column(
+        DateTime,
+        nullable=False,
+        default=datetime.utcnow(),
+        onupdate=datetime.utcnow()
+    )
 
     #create init for basemodel
     def __init__(self):
