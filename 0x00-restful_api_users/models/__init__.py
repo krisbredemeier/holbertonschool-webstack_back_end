@@ -2,7 +2,7 @@
 from sqlalchemy import create_engine, case
 db_engine = create_engine("mysql[+mysqldb]://HBNB_YELP_MYSQL_USER:HBNB_YELP_MYSQL_PWD@HBNB_YELP_MYSQL_HOST/HBNB_YELP_MYSQL_DB")
 case([
-        (HBNB_YELP_ENV=test),
+        (HBNB_YELP_ENV=='test'),
         (drop_all(bind=None, tables=None, checkfirst=True))
     ])
 create_all(bind=None, tables=None, checkfirst=True)
