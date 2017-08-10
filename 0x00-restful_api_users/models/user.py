@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from sqlalchemy import Column, Integer, String, UniqueConstraint, DateTime
 from models.base_model import BaseModel
 import hashlib
 import datetime
