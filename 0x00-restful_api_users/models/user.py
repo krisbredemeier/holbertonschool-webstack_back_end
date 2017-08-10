@@ -93,7 +93,6 @@ class User(BaseModel):
         else:
             self._password = hashlib.md5(value.encode("utf8")).hexdigest()
 
-
     def is_valid_password(self, pwd):
         '''
         validates that the value passed is the clear
@@ -105,7 +104,6 @@ class User(BaseModel):
             return True
         else:
             return False
-
 
     def to_dict(self):
         '''
