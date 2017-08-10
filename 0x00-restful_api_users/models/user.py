@@ -21,6 +21,10 @@ _password initialized to None
 # defines user class
 class User(BaseModel):
 
+    '''
+    stuff
+    '''
+
     __tablename__ = 'users'
     email = Column(
         String(128),
@@ -41,6 +45,9 @@ class User(BaseModel):
 
     # Displays user with peramiters
     def display_name(self):
+        '''
+        stuff
+        '''
         if self.email is None and \
         self.first_name is None and \
         self.last_name is None:
@@ -56,6 +63,9 @@ class User(BaseModel):
 
     # overrides str
     def __str__(self):
+        '''
+        stuff
+        '''
         return '{} {} - {} - {}'.format(
             '[User]', self.id, self.email, self.display_name()
         )
@@ -63,11 +73,17 @@ class User(BaseModel):
     # creates getter to encrypt user password
     @property
     def password(self):
+        '''
+        stuff
+        '''
         return self._password
 
     # setter for password
     @password.setter
     def password(self, value):
+        '''
+        stuff
+        '''
         if value is None:
             self._password = None
         else:
@@ -76,6 +92,9 @@ class User(BaseModel):
     # validates that the value passed is the clear
     # version of the password of a User instance
     def is_valid_password(self, pwd):
+        '''
+        stuff
+        '''
         if pwd is None or type(pwd) != str or self._password is None:
             return False
         if hashlib.md5(pwd.encode("utf8")).hexdigest() == self.password:
@@ -86,6 +105,9 @@ class User(BaseModel):
     # returns a serializable representation
     # (dictionary of integers and strings) of an User instance:
     def to_dict(self):
+        '''
+        stuff
+        '''
         User = {
             'id': self.id,
             'email': self.email,

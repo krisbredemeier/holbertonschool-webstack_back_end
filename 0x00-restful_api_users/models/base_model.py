@@ -26,6 +26,9 @@ Base = declarative_base()
 
 # define basemodel
 class BaseModel(object):
+    '''
+    stuff
+    '''
 
     id = Column(
         Integer,
@@ -47,6 +50,9 @@ class BaseModel(object):
 
     #create init for basemodel
     def __init__(self):
+        '''
+        stuff
+        '''
         self.id = str(uuid4())
         self.created_at = datetime.utcnow()
         self.updated_at = datetime.utcnow()

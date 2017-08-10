@@ -12,23 +12,38 @@ from models.base_model import BaseModel
 from datetime import datetime
 
 class TestBaseModel(unittest.TestCase):
+    '''
+    stuff
+    '''
 
     # sets up instance for basemodel tests
     def setUp(self):
+        '''
+        stuff
+        '''
         self.my_base_model = BaseModel()
 
     def test_id(self):
+        '''
+        stuff
+        '''
         # check if id is unique
         bm = BaseModel()
         self.assertNotEqual(bm.id, self.my_base_model.id)
         self.assertTrue(type(self.my_base_model.id) == str)
 
     def test_created_at(self):
+        '''
+        stuff
+        '''
         # test if created_at not empty
         self.assertNotEqual(self.my_base_model.created_at, None)
         self.assertTrue(self.my_base_model.created_at, datetime.utcnow())
 
     def test_updated_at(self):
+        '''
+        stuff
+        '''
         # test if updated_at is not empty
         self.assertNotEqual(self.my_base_model.updated_at, None)
         self.assertTrue(self.my_base_model.updated_at, datetime.utcnow())

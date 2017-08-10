@@ -9,13 +9,22 @@ from models.base_model import BaseModel
 from models.user import User
 
 class TestUser(unittest.TestCase):
+    '''
+    stuff
+    '''
 
     # sets up instance of my_user
     def setUp(self):
+        '''
+        stuff
+        '''
         self.my_user = User()
 
     # tests for the user class
     def testUser(self):
+        '''
+        stuff
+        '''
         #check if email exists
         self.assertNotEqual(self.my_user.email, None)
         #check if first name exists
@@ -27,6 +36,9 @@ class TestUser(unittest.TestCase):
 
     # tests for password method
     def testPwd(self):
+        '''
+        stuff
+        '''
         #check if pwd is equal to self.password
         self.assertTrue(self.my_user.pwd, self.password)
 
