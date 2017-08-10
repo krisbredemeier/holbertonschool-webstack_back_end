@@ -18,10 +18,11 @@ _password initialized to None
 
 class User(BaseModel):
 
-    email = None
-    first_name = None
-    last_name = None
-    _password = None
+    __tablename__ = 'users'
+    email = Column(String(128), nullable=False)
+    first_name = Column(String(128), nullable=False)
+    last_name = Column(String(128), nullable=False)
+    _password = Column(String(128), nullable=False)
 
     def display_name(self):
         if self.email == None and self.first_name == None and self.last_name == None:

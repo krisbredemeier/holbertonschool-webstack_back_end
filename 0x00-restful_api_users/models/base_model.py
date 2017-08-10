@@ -16,14 +16,18 @@ assign to created_at and updated_at the current date and time in UTC
 (please refer to the datetime module)
 '''
 
+from sqlalchemy import Column, Integer, String, UniqueConstraint
+from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 from uuid import *
 
-class BaseModel():
+Base = declarative_base()
 
-    id = None
-    created_at = None
-    updated_at = None
+class BaseModel(object):
+
+    id = Column(Integer(60), unique=True, nullable=False, primary_key=True)
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
+    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow(), update=datetime.utcnow())
 
     def __init__(self):
         self.id = str(uuid4())
