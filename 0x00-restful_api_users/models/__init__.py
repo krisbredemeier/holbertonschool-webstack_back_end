@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from sqlalchemy import create_engine
-from sqlalchemy import drop_all
+from sqlalchemy.schema import drop_all
 from sqlalchemy import created_at
 from sqlalchemy import scope_session
 from sqlalchemy import sessionmaker
