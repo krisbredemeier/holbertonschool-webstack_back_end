@@ -25,7 +25,7 @@ Base = declarative_base()
 
 class BaseModel(object):
 
-    id = Column(Integer(60), unique=True, nullable=False, primary_key=True)
+    id = Column(Integer, unique=True, nullable=False, primary_key=True)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow(), update=datetime.utcnow())
 
