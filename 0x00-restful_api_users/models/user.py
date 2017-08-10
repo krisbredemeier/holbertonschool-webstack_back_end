@@ -30,11 +30,11 @@ class User(BaseModel):
     def display_name(self):
         if self.email == None and self.first_name == None and self.last_name == None:
             return ''
-        if ((self.first_name == None) & (self.last_name == None)):
+        elif self.first_name == None & self.last_name == None:
             return self.email
-        if self.last_name == None:
+        elif self.last_name == None:
             return self.first_name
-        if self.first_name == None:
+        elif self.first_name == None:
             return self.last_name
         else:
             return '{} {}'.format(self.first_name, self.last_name)
