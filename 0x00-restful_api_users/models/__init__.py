@@ -26,11 +26,23 @@ from models.base_model import *
 
 metadata = schema.MetaData()
 
-db_engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(os.environ.get('HBNB_YELP_MYSQL_USER'), os.environ.get('HBNB_YELP_MYSQL_PWD'), os.environ.get('HBNB_YELP_MYSQL_HOST'), os.environ.get('HBNB_YELP_MYSQL_DB')))
+# use sqlalchemy to creat engine
+db_engine = create_engine(
+    "mysql+mysqldb://{}:{}@{}/{}".format(
+        os.environ.get('HBNB_YELP_MYSQL_USER'),
+        os.environ.get('HBNB_YELP_MYSQL_PWD'),
+        os.environ.get('HBNB_YELP_MYSQL_HOST'),
+        os.environ.get('HBNB_YELP_MYSQL_DB')
+        )
+)
+
+# define base.metadata
 Base.metadata.bind = db_engine
 
 if os.environ.get('HBNB_YELP_ENV') == 'test':
     drop_all()
 
 Base.metadata.create_all()
-db_session = scoped_session(sessionmaker(bind=db_engine, expire_on_commit=False))
+db_session = scoped_session(
+    sessionmaker(bind=db_engine, expire_on_commit=False)
+)
