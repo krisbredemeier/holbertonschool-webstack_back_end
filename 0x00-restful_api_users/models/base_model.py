@@ -48,7 +48,6 @@ class BaseModel(object):
         onupdate=datetime.utcnow()
     )
 
-    #create init for basemodel
     def __init__(self):
         '''
         stuff
