@@ -27,8 +27,8 @@ Base = declarative_base()
 class BaseModel(object):
 
     id = Column(Integer, unique=True, nullable=False, primary_key=True)
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
-    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow(), update=datetime.utcnow())
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow, update=datetime.utcnow)
 
     #create init for basemodel
     def __init__(self):
