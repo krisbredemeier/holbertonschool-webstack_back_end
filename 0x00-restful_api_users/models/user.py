@@ -22,7 +22,7 @@ _password initialized to None
 class User(BaseModel):
 
     '''
-    stuff
+    a class User that defines the user model
     '''
 
     __tablename__ = 'users'
@@ -46,7 +46,9 @@ class User(BaseModel):
     # Displays user with peramiters
     def display_name(self):
         '''
-        stuff
+        mprove the User class by adding the public instance method
+        def display_name(self):
+        that displays the full name of an User instance
         '''
         if (self.email is None and
             self.first_name is None and
@@ -64,7 +66,9 @@ class User(BaseModel):
     # overrides str
     def __str__(self):
         '''
-        stuff
+        Improve the class User by overriding the
+        public instance method def __str__(self):
+        to display a readable User instance
         '''
         return '{} {} - {} - {}'.format(
             '[User]', self.id, self.email, self.display_name()
@@ -74,26 +78,26 @@ class User(BaseModel):
     @property
     def password(self):
         '''
-        stuff
+        Improve the User class by adding public instance methods
+        to access and assign a password to a User instance
         '''
         return self._password
 
-    # setter for password
     @password.setter
     def password(self, value):
         '''
-        stuff
+        setter for password
         '''
         if value is None:
             self._password = None
         else:
             self._password = hashlib.md5(value.encode("utf8")).hexdigest()
 
-    # validates that the value passed is the clear
-    # version of the password of a User instance
+
     def is_valid_password(self, pwd):
         '''
-        stuff
+        validates that the value passed is the clear
+        version of the password of a User instance
         '''
         if pwd is None or type(pwd) != str or self._password is None:
             return False
@@ -102,11 +106,11 @@ class User(BaseModel):
         else:
             return False
 
-    # returns a serializable representation
-    # (dictionary of integers and strings) of an User instance:
+
     def to_dict(self):
         '''
-        stuff
+        returns a serializable representation
+        (dictionary of integers and strings) of an User instance:
         '''
         User = {
             'id': self.id,

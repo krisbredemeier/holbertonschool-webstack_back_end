@@ -14,13 +14,14 @@ from datetime import datetime
 
 class TestBaseModel(unittest.TestCase):
     '''
-    stuff
+    Does id, created_at and updated_at have a value
+    when you create a new instance of the BaseModel class?
+    Is id is unique?
     '''
 
-    # sets up instance for basemodel tests
     def setUp(self):
         '''
-        stuff
+        sets up instance for basemodel tests
         '''
         self.my_base_model = BaseModel()
 

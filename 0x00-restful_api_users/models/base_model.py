@@ -27,7 +27,7 @@ Base = declarative_base()
 # define basemodel
 class BaseModel(object):
     '''
-    stuff
+    This defines the parent model for all our future models.
     '''
 
     id = Column(
@@ -50,7 +50,7 @@ class BaseModel(object):
 
     def __init__(self):
         '''
-        stuff
+        override the instance creation method
         '''
         self.id = str(uuid4())
         self.created_at = datetime.utcnow()
