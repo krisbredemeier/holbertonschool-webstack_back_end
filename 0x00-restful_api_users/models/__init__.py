@@ -17,6 +17,7 @@ bind option must be set to the db_engine object
 expire_on_commit option must be set to False
 '''
 
+
 from sqlalchemy import create_engine
 from sqlalchemy import schema
 from sqlalchemy.orm import scoped_session

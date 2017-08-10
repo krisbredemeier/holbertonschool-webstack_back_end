@@ -41,7 +41,7 @@ class TestUser(unittest.TestCase):
         stuff
         '''
         #check if pwd is equal to self.password
-        self.assertNotEqual(self.my_user.pwd, self.password)
+        self.assertNotEqual(self.my_user._password, self.password)
 
 if __name__ == '___main__':
     unittest.main()
