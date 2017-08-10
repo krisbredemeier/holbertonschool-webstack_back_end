@@ -16,7 +16,7 @@ assign to created_at and updated_at the current date and time in UTC
 (please refer to the datetime module)
 '''
 
-from sqlalchemy import Column, Integer, String, UniqueConstraint
+from sqlalchemy import Column, Integer, String, UniqueConstraint, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 from uuid import *
