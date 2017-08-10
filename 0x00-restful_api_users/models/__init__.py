@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-from sqlalchemy import create_engine, create_all, scope_session, sessionmaker
+from sqlalchemy import create_engine
+import sqlalchemy
 import os
 
 db_engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(os.environ.get('HBNB_YELP_MYSQL_USER'), os.environ.get('HBNB_YELP_MYSQL_PWD'), os.environ.get('HBNB_YELP_MYSQL_HOST'), os.environ.get('HBNB_YELP_MYSQL_DB')))
