@@ -30,7 +30,7 @@ class User(BaseModel):
     def display_name(self):
         if self.email == None and self.first_name == None and self.last_name == None:
             return ''
-        if self.first_name == None and self.last_name == None:
+        if (self.first_name == None) & (self.last_name == None):
             return self.email
         if self.last_name == None:
             return self.first_name
