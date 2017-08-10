@@ -7,7 +7,7 @@ db_engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(
     env['HBNB_YELP_MYSQL_DB']
     )
 
-if env['HBNB_YELP_ENV']=='test':
+if (env['HBNB_YELP_ENV'] == 'test'):
     drop_all(bind=None, tables=None, checkfirst=True)
 
 create_all(bind=None, tables=None, checkfirst=True)
