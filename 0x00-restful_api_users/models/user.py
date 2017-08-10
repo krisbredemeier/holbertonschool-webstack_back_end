@@ -53,13 +53,13 @@ class User(BaseModel):
         if (self.email is None and
             self.first_name is None and
                 self.last_name is None):
-                    return ''
+                    return '{}'.format('')
         if self.first_name is None and self.last_name is None:
-            return self.email
+            return '{}'.format(self.email)
         elif self.last_name is None:
-            return self.first_name
+            return '{}'.format(self.first_name)
         elif self.first_name is None:
-            return self.last_name
+            return (self.last_name)
         else:
             return '{} {}'.format(self.first_name, self.last_name)
 
