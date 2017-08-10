@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from sqlalchemy import create_engine
 # from sqlalchemy import drop_all
-from sqlalchemy import create_all
+# from sqlalchemy import create_all
 from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
 import os
