@@ -13,5 +13,5 @@ db_engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(os.environ.get('H
 if os.environ.get('HBNB_YELP_ENV') == 'test':
     drop_all()
 
-create_all()
+create_all(db_engine)
 db_session = scoped_session(sessionmaker(bind=db_engine, expire_on_commit=False))
