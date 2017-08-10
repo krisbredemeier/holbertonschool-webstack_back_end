@@ -4,7 +4,6 @@ from sqlalchemy import create_engine
 # from sqlalchemy import created_at
 from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 
