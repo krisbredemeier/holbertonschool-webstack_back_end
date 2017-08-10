@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from sqlalchemy import create_engine
-from sqlalchemy.schema import drop_all
+from sqlalchemy import drop_all
 from sqlalchemy import created_at
 from sqlalchemy import scope_session
 from sqlalchemy import sessionmaker
@@ -10,7 +10,7 @@ db_engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(os.environ.get('H
 
 
 if os.environ.get('HBNB_YELP_ENV') == 'test':
-    drop_all(bind=None, tables=None, checkfirst=True)
+    drop_all()
 
 create_all(bind=None, tables=None, checkfirst=True)
 db_session = scope_session(sessionmaker(bind=db_engine, expire_on_commit=False))
