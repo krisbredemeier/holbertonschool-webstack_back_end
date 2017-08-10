@@ -16,6 +16,7 @@ Protected class attributes:
 _password initialized to None
 '''
 
+# defines user class
 class User(BaseModel):
 
     __tablename__ = 'users'
@@ -24,6 +25,7 @@ class User(BaseModel):
     last_name = Column(String(128), nullable=False)
     _password = Column(String(128), nullable=False)
 
+    # Displays user with peramiters
     def display_name(self):
         if self.email == None and self.first_name == None and self.last_name == None:
             return ''
@@ -36,6 +38,7 @@ class User(BaseModel):
         else:
             return '{} {}'.format(self.first_name, self.last_name)
 
+    # overrides str
     def __str__(self):
         return '{} {} - {} - {}'.format('[User]', self.id, self.email, self.display_name())
 
@@ -44,6 +47,7 @@ class User(BaseModel):
     def password(self):
         return self._password
 
+    # setter for password
     @password.setter
     def password(self, value):
         if value == None:

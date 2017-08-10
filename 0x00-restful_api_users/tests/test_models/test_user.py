@@ -10,9 +10,11 @@ from models.user import User
 
 class TestUser(unittest.TestCase):
 
+    # sets up instance of my_user
     def setUp(self):
         self.my_user = User()
 
+    # tests for the user class
     def testUser(self):
         #check if email exists
         self.assertNotEqual(self.my_user.email, None)
@@ -23,6 +25,7 @@ class TestUser(unittest.TestCase):
         #check if password exists
         self.assertNotEqual(self.my_user._password, None)
 
+    # tests for password method
     def testPwd(self):
         #check if pwd is equal to self.password
         self.assertTrue(self.my_user.pwd, self.password)
