@@ -32,8 +32,8 @@ class User(BaseModel, Base):
         nullable=False
     )
     first_name = Column(
-        'first_name'
-,        String(128),
+        'first_name',
+        String(128),
         nullable=True
     )
     last_name = Column(
@@ -42,7 +42,7 @@ class User(BaseModel, Base):
         nullable=True
     )
     _password = Column(
-        'password', 
+        'password',
         String(128),
         nullable=False
     )
