@@ -23,7 +23,7 @@ from sqlalchemy import schema
 from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
 import os
-from models.base_model import *
+from models.base_model import BaseModel, Base
 
 metadata = schema.MetaData()
 

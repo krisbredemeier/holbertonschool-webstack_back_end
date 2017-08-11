@@ -8,7 +8,7 @@ etc...
 '''
 
 import unittest
-from models.base_model import *
+from models.base_model import BaseModel, Base
 from datetime import datetime
 
 
