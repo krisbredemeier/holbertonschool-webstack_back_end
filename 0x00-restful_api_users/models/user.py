@@ -19,7 +19,7 @@ _password initialized to None
 
 
 # defines user class
-class User(BaseModel):
+class User(Base, BaseModel):
 
     '''
     a class User that defines the user model
