@@ -24,8 +24,8 @@ from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
 import os
 from models.base_model import BaseModel, Base
+from models.user import User
 
-metadata = schema.MetaData()
 
 # use sqlalchemy to creat engine
 db_engine = create_engine(
@@ -37,13 +37,13 @@ db_engine = create_engine(
         )
 )
 
-# define base.metadata
-Base.metadata.bind = db_engine
 
 if os.environ.get('HBNB_YELP_ENV') == 'test':
-    drop_all()
+    Base.metadata.drop_all(db_engine)
+# if not db_engine.dialect.has_table(db_engine, hbtn_yelp_dev.users):
 
-Base.metadata.create_all()
+Base.metadata.create_all(db_engine)
+
 db_session = scoped_session(
     sessionmaker(bind=db_engine, expire_on_commit=False)
 )
