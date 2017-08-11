@@ -39,6 +39,7 @@ class User(Base, BaseModel):
         nullable=False
     )
     _password = Column(
+        'password',
         String(128),
         nullable=False
     )
