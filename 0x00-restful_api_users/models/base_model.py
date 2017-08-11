@@ -30,9 +30,26 @@ class BaseModel(object):
     This defines the parent model for all our future models.
     '''
 
-    id = Column(String(60), unique=True, nullable=False, primary_key=True)
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
-    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow(), onupdate=datetime.utcnow())
+    id = Column(
+        'id',
+        String(60),
+        unique=True,
+        nullable=False,
+        primary_key=True
+    )
+    created_at = Column(
+        'created_at',
+        DateTime,
+        nullable=False,
+        default=datetime.utcnow()
+    )
+    updated_at = Column(
+        'updated_at',
+        DateTime,
+        nullable=False,
+        default=datetime.utcnow(),
+        onupdate=datetime.utcnow()
+    )
 
     def __init__(self):
         '''
