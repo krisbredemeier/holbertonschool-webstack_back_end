@@ -31,7 +31,7 @@ class BaseModel(object):
     '''
 
     id = Column(
-        Integer,
+        String(60),
         unique=True,
         nullable=False,
         primary_key=True
