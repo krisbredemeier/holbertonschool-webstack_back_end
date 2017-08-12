@@ -24,9 +24,6 @@ class TestBaseModel(unittest.TestCase):
         sets up instance for basemodel tests
         '''
         self.my_base_model = BaseModel()
-        self.my_base_model.id = '1'
-        self.my_base_model.created_at = '2017-08-11 22:36:27'
-        self.my_base_model.updated_at = '2017-08-11 22:36:27'
 
 
     def test_id(self):
@@ -44,7 +41,7 @@ class TestBaseModel(unittest.TestCase):
         '''
         # test if created_at not empty
         self.assertNotEqual(self.my_base_model.created_at, None)
-        self.assertTrue(self.my_base_model.created_at, datetime.utcnow())
+        # create_at is date time object
 
     def test_updated_at(self):
         '''
@@ -52,7 +49,7 @@ class TestBaseModel(unittest.TestCase):
         '''
         # test if updated_at is not empty
         self.assertNotEqual(self.my_base_model.updated_at, None)
-        self.assertTrue(self.my_base_model.updated_at, datetime.utcnow())
+        # updated_at is a datetime object
 
 if __name__ == '___main__':
     unittest.main()
