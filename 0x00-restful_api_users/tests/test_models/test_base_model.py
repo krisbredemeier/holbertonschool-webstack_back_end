@@ -24,6 +24,10 @@ class TestBaseModel(unittest.TestCase):
         sets up instance for basemodel tests
         '''
         self.my_base_model = BaseModel()
+        self.my_base_model.id = '1'
+        self.my_base_model.created_at = '2017-08-11 22:36:27'
+        self.my_base_model.updated_at = '2017-08-11 22:36:27'
+
 
     def test_id(self):
         '''

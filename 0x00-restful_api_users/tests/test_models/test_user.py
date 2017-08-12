@@ -20,6 +20,10 @@ class TestUser(unittest.TestCase):
         stuff
         '''
         self.my_user = User()
+        self.my_user.email = 'test@test.test'
+        self.my_user.first_name = 'first'
+        self.my_user.last_name = 'last'
+        self.my_user._password = 'abc'
 
     # tests for the user class
     def testUser(self):
@@ -29,13 +33,19 @@ class TestUser(unittest.TestCase):
         # check if email exists
         self.assertNotEqual(self.my_user.email, None)
         # make sure email is String
-        self.assertTrue(self.my_user.email, '')
+        self.assertTrue(type(self.my_user.email) == str)
         # check if first name exists
         self.assertNotEqual(self.my_user.first_name, None)
+        # make sure first name is String
+        self.assertTrue(type(self.my_user.first_name) == str)
         # check if last name exists
         self.assertNotEqual(self.my_user.last_name, None)
+        # make sure email is String
+        self.assertTrue(type(self.my_user.last_name) == str)
         # check if password exists
         self.assertNotEqual(self.my_user._password, None)
+        # make sure email is String
+        self.assertTrue(type(self.my_user._password) == str)
 
     # tests for password method
     def testPwd(self):
@@ -43,8 +53,6 @@ class TestUser(unittest.TestCase):
         stuff
         '''
         pass
-        # check if pwd is equal to self.password
-        # self.assertNotEqual(self.my_user._password, self.password)
 
 if __name__ == '___main__':
     unittest.main()
