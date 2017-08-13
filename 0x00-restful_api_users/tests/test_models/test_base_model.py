@@ -28,26 +28,23 @@ class TestBaseModel(unittest.TestCase):
 
     def test_id(self):
         '''
-        stuff
+        check if id is unique
         '''
-        # check if id is unique
         bm = BaseModel()
         self.assertNotEqual(bm.id, self.my_base_model.id)
         self.assertTrue(type(self.my_base_model.id) == str)
 
     def test_created_at(self):
         '''
-        stuff
+        test if created_at not empty
         '''
-        # test if created_at not empty
         self.assertNotEqual(self.my_base_model.created_at, None)
         # create_at is date time object
 
     def test_updated_at(self):
         '''
-        stuff
+        test if updated_at is not empty
         '''
-        # test if updated_at is not empty
         self.assertNotEqual(self.my_base_model.updated_at, None)
         # updated_at is a datetime object
 

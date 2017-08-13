@@ -26,20 +26,54 @@ class TestUser(unittest.TestCase):
         self.my_user.last_name = 'last'
         self.my_user.password = 'abc'
 
-    # tests for the user class
-    def testUser(self):
+    def testuser(self):
         '''
-        stuff
+        test combiantion of user
+        '''
+        self.assertTrue(
+            (self.my_user.last_name, None) and (self.my_user.first_name, None),
+            (type(self.my_user.email) == str)
+        )
+        self.assertTrue(
+            (self.my_user.last_name, None),
+            (type(self.my_user.first_name) == str)
+        )
+        self.assertTrue(
+            (self.my_user.first_name, None),
+            (type(self.my_user.last_name) == str)
+        )
+        # self.assertTrue(
+        #     ((type(self.my_user.last_name) == str),
+        #     (type(self.my_user.first_name) == str),
+        #     (type(self.my_user.email) == str) == ({} {} - {} - {}'.format(
+        #         '[User]', self.id, self.email, self.display_name()
+        #     )
+        # )
+
+    # tests for the user class
+    def testUseEmail(self):
+        '''
+        test all possible cases for user error in email
         '''
         # check if email exists
         self.assertNotEqual(self.my_user.email, None)
         self.assertEqual(self.my_user.email, 'test@test.test')
         # make sure email is String
         self.assertTrue(type(self.my_user.email) == str)
+
+    def testUserFirst(self):
+        '''
+        test all possible cases for user error in first name
+        '''
         # check if first name exists
         self.assertNotEqual(self.my_user.first_name, None)
         # make sure first name is String
         self.assertTrue(type(self.my_user.first_name) == str)
+
+    def testUserLast(self):
+        '''
+        test all possible cases for user error in last name
+        '''
         # check if last name exists
         self.assertNotEqual(self.my_user.last_name, None)
         # make sure email is String
