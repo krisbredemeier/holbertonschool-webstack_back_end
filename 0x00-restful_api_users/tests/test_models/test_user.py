@@ -31,6 +31,13 @@ class TestUser(unittest.TestCase):
         test combiantion of user
         '''
         self.assertTrue(
+            (
+                (self.my_user.first_name, None),
+                (self.my_user.last_name, None),
+                (self.my_user.email, None),
+                (type(return) == str)
+        )
+        self.assertTrue(
             (self.my_user.last_name, None) and (self.my_user.first_name, None),
             (type(self.my_user.email) == str)
         )
