@@ -43,7 +43,8 @@ class TestUser(unittest.TestCase):
             (self.my_user.first_name, None),
             (type(self.my_user.last_name) == str)
         )
-
+        format = '{} {}'.format(self.my_user.first_name, self.my_user.last_name)
+        self.assertTrue(str(self.my_user), format)
 
     # tests for the user class
     def testUseEmail(self):
@@ -101,7 +102,7 @@ class TestUser(unittest.TestCase):
             self.my_user.email,
             self.my_user.display_name()
         )
-        self.assertNotEqual(str(self.my_user), "")
+        self.assertEqual(str(self.my_user), format)
 
     def testDict(self):
         '''
