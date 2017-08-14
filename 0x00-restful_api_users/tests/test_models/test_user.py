@@ -30,12 +30,7 @@ class TestUser(unittest.TestCase):
         '''
         test combiantion of user
         '''
-        # self.assertTrue(
-        #     (self.my_user.first_name, None),
-        #     (self.my_user.last_name, None),
-        #     (self.my_user.email, None),
-        #     (self.my_user.display_name(), '{}'.format(''))
-        # )
+
         self.assertTrue(
             (self.my_user.last_name, None) and (self.my_user.first_name, None),
             (type(self.my_user.email) == str)
@@ -48,11 +43,7 @@ class TestUser(unittest.TestCase):
             (self.my_user.first_name, None),
             (type(self.my_user.last_name) == str)
         )
-        # self.assertTrue(
-        #     (type(self.my_user.last_name) == str),
-        #     (type(self.my_user.first_name) == str),
-        #     (self.my_user.display_name(self), '{} {}'.format())
-        # )
+
 
     # tests for the user class
     def testUseEmail(self):
