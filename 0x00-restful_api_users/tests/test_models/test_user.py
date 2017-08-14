@@ -104,6 +104,16 @@ class TestUser(unittest.TestCase):
         '''
         pass
 
+    def testDict(self):
+        '''
+        test to make sure to_dic returns a serializable representation
+        of a User instance
+        '''
+        dict = self.my_user.to_dict()
+        self.assertTrue(type(dict['id']) == str)
+        self.assertTrue(type(dict['email']) == str)
+        self.assertTrue(type(dict['first_name']) == str)
+        self.assertTrue(type(dict['last_name']) == str)
 
 if __name__ == '___main__':
     unittest.main()
