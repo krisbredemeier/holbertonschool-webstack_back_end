@@ -89,6 +89,7 @@ class TestUser(unittest.TestCase):
             self.my_user.password,
             hashlib.md5('abc'.encode("utf8")).hexdigest()
         )
+        self.assertTrue(self.my_user.password, None)
 
     def testStr(self):
         '''
