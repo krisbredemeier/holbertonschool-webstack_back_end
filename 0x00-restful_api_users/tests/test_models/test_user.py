@@ -118,6 +118,7 @@ class TestUser(unittest.TestCase):
         self.assertTrue(type(dict['email']) == str)
         self.assertTrue(type(dict['first_name']) == str)
         self.assertTrue(type(dict['last_name']) == str)
+        self.assertIsNotNone(dict)
 
 if __name__ == '___main__':
     unittest.main()
