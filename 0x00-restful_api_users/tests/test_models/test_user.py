@@ -102,7 +102,11 @@ class TestUser(unittest.TestCase):
         '''
         Test the overriding the pulblic instance method
         '''
-        pass
+        self.assertNotEqual(str(self.my_user), "")
+        # test the format of the return
+        format = '{} {} - {} - {}'.format(
+            '[User]', self.my_user.id, self.my_user.email, self.my_user.display_name())
+        self.assertNotEqual(str(self.my_user), "")
 
     def testDict(self):
         '''
