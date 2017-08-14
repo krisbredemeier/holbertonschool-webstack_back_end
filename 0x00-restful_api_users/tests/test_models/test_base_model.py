@@ -25,7 +25,6 @@ class TestBaseModel(unittest.TestCase):
         '''
         self.my_base_model = BaseModel()
 
-
     def test_id(self):
         '''
         check if id is unique
