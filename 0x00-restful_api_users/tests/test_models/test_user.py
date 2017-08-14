@@ -30,13 +30,12 @@ class TestUser(unittest.TestCase):
         '''
         test combiantion of user
         '''
-        self.assertTrue(
-            (
-                (self.my_user.first_name, None),
-                (self.my_user.last_name, None),
-                (self.my_user.email, None),
-                (type(return) == str)
-        )
+        # self.assertTrue(
+        #     (self.my_user.first_name, None),
+        #     (self.my_user.last_name, None),
+        #     (self.my_user.email, None),
+        #     (self.my_user.display_name(), '{}'.format(''))
+        # )
         self.assertTrue(
             (self.my_user.last_name, None) and (self.my_user.first_name, None),
             (type(self.my_user.email) == str)
@@ -50,11 +49,9 @@ class TestUser(unittest.TestCase):
             (type(self.my_user.last_name) == str)
         )
         # self.assertTrue(
-        #     ((type(self.my_user.last_name) == str),
+        #     (type(self.my_user.last_name) == str),
         #     (type(self.my_user.first_name) == str),
-        #     (type(self.my_user.email) == str) == ({} {} - {} - {}'.format(
-        #         '[User]', self.id, self.email, self.display_name()
-        #     )
+        #     (self.my_user.display_name(self), '{} {}'.format())
         # )
 
     # tests for the user class
@@ -100,6 +97,12 @@ class TestUser(unittest.TestCase):
             self.my_user.password,
             hashlib.md5('abc'.encode("utf8")).hexdigest()
         )
+
+    def testStr(self):
+        '''
+        Test the overriding the pulblic instance method
+        '''
+        pass
 
 
 if __name__ == '___main__':
