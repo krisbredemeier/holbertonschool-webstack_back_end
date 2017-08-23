@@ -4,7 +4,8 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/', methods = ['GET'])
+
+@app.route('/', methods=['GET'])
 def run_flask():
     '''
     start flask application
@@ -14,13 +15,3 @@ def run_flask():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
-
-
-# app = Flask(__name__)
-#
-# @app.route('/', methods=['GET'])
-# def test():
-#     print("Holberton")
-#
-# if __name__ == "__main__":
-#     app.run(host='0.0.0.0', port=5000)
