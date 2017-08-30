@@ -8,12 +8,14 @@ app.url_map.strict_slashes = False
 HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
 HBNB_API_HOST = os.environ.get('HBNB_API_HOST')
 
+
 @app.route('/', methods=['GET'])
 def run_flask():
     '''
     start flask application
     '''
     return "Holberton School"
+
 
 @app.route('/c', methods=['GET'])
 def retunC():

@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 from flask import Flask
 
 app = Flask(__name__)
@@ -12,6 +11,7 @@ def run_flask():
     retrun text from / route
     '''
     return "Holberton School"
+
 
 @app.route('/c', methods=['GET'])
 def retunC():
