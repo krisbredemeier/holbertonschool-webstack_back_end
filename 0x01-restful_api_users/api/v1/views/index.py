@@ -11,9 +11,10 @@ def test():
     '''
     return '{"status" : "OK"}'
 
-def database():
+
+@app_views.route('/status', methods=['GET'], strict_slashes=False)
+def database_stats():
     '''
     link database to routs and count number of users
     '''
-    # User.count()
-    return jsonify(users="number of users in database")
+    return jsonify(users=User.count())
