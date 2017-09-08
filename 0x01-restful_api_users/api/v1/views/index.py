@@ -15,4 +15,5 @@ def database():
     '''
     link database to routs and count number of users
     '''
+    # User.count()
     return jsonify(users="number of users in database")
