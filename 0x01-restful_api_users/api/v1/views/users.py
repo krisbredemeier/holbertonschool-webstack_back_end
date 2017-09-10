@@ -29,7 +29,7 @@ def access_user():
     return jsonify(users)
 
 
-@app_views.route('/users/<udrt_id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
 def user(user_id):
     '''
     update get
@@ -41,8 +41,8 @@ def user(user_id):
         return jsonify(user.to_dict())
 
 
-@app_views.route('/users/<udrt_id>', methods=['GET'], strict_slashes=False)
-def delete(user_id):
+@app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
+def delete_user(user_id):
     '''
     manages delete
     '''
@@ -53,3 +53,25 @@ def delete(user_id):
         db_session.delete(user)
         sb_session.commit()
         return jsonify()
+
+
+@app_views.route('/users', methods=['POST'], strict_slashes=False)
+def create_user():
+    '''
+    creates a new user
+    '''
+    if request.get_json():
+        json = request.get_json()
+        email = json.get('email')
+        if email is None:
+            return jsonify(error='email missing'), 404
+        password = json.get('password')
+        if password is None:
+            return jsonify(error='password missing'), 404
+        new_user = User()
+        new_user.email = json['email']
+        new_user.password = json['password']
+        if json.get('first_name'):
+            new_user.first_name = json.get('first_name')
+        if json.get('last_name'):
+            new_user.first_name = json.get('last_name')
