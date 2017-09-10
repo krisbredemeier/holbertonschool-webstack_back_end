@@ -12,12 +12,14 @@ HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
 HBNB_API_HOST = os.environ.get('HBNB_API_HOST')
 app.register_blueprint(app_views)
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     '''
     error handleler
     '''
     return jsonify(error="Not found"), 404
+
 
 @app.teardown_appcontext
 def close_db(error):
