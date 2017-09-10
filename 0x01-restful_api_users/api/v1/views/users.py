@@ -28,8 +28,9 @@ def access_user():
         users.append(user.to_dict())
     return jsonify(users)
 
+
 @app_views.route('/users/<udrt_id>', methods=['GET'], strict_slashes=False)
-def user():
+def user(user_id):
     '''
     update get
     '''
@@ -38,3 +39,17 @@ def user():
         return abort(404)
     else:
         return jsonify(user.to_dict())
+
+
+@app_views.route('/users/<udrt_id>', methods=['GET'], strict_slashes=False)
+def delete(user_id):
+    '''
+    manages delete
+    '''
+    user = User.get(user_id)
+    if user is None:
+        return abort(404)
+    else:
+        db_session.delete(user)
+        sb_session.commit()
+        return jsonify()
