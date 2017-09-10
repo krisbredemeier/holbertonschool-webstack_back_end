@@ -24,9 +24,8 @@ def access_user():
     list of user
     '''
     users = []
-    for user in User.all():
-        users.append(user.to_dict())
-    return jsonify(users)
+    all_users = db_session.query(User).order_by(User.created_at).all()
+    return jsonify(all_users)
 
 
 @app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
