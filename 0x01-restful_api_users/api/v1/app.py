@@ -5,6 +5,7 @@ from flask import jsonify
 from api.v1.views import app_views
 from flask import g
 import os
+from models import db_session
 app = Flask(__name__)
 
 HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
@@ -13,6 +14,9 @@ app.register_blueprint(app_views)
 
 @app.errorhandler(404)
 def page_not_found(e):
+    '''
+    error handleler
+    '''
     return jsonify(error="Not found"), 404
 
 @app.teardown_appcontext
