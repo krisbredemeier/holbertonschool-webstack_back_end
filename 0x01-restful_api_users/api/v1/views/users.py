@@ -75,3 +75,31 @@ def create_user():
             new_user.first_name = json.get('first_name')
         if json.get('last_name'):
             new_user.first_name = json.get('last_name')
+        try:
+            db_session.add(new_user)
+            db_session.commit()
+        except:
+            return jsonify(error="Can't create user: <exceptino message>"), 400
+        return jsonify(User.last().to_dict()), 201
+    else:
+        return jsonify(error="Wrong format"), 400
+
+
+@app_views.route('/users/<user_id>', methods=['POST'], strict_slashes=False)
+def update_user():
+    '''
+    updates the user
+    '''
+    user = User.get(user_id)
+    if user is None:
+        return abort(404)
+    if request.json():
+        json = requests.get_json()
+        if json.get('first_name'):
+            new_user.first_name = json.get('first_name')
+        if json.get('last_name'):
+            new_user.first_name = json.get('last_name')
+        db_session.commit()
+        return jsonify(user.to_dict)
+    else:
+        return jsonify(error="Wrong format"), 400
