@@ -24,7 +24,7 @@ def close_db(error):
     '''
     Closes the database again at the end of the request.
     '''
-    db.session.remove()
+    db_session.remove()
 
 
 if __name__ == "__main__":
