@@ -28,6 +28,9 @@ def run_flask():
 
 @app.route('/c', methods=['GET'], strict_slashes=False)
 def retunC():
+    '''
+    c route
+    '''
     return "C is fun!"
 
 
