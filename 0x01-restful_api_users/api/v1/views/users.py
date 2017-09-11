@@ -25,8 +25,11 @@ def access_user():
     list of user
     '''
     users = []
-    all_users = db_session.query(User).order_by(User.created_at).all()
-    return jsonify(users)
+    user = db_session.query(User).order_by(User.created_at).all()
+    if user is None:
+        return abort(404)
+    else:
+        return jsonify(users)
 
 
 @app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
@@ -34,7 +37,7 @@ def user(user_id):
     '''
     update get
     '''
-    user = User.get(user_id)
+    user = db_session.query(User).get(user_id)
     if user is None:
         return abort(404)
     else:
@@ -46,7 +49,7 @@ def delete_user(user_id):
     '''
     manages delete
     '''
-    user = User.get(user_id)
+    user = db_session.query(User).get(user_id)
     if user is None:
         return abort(404)
     else:
