@@ -15,7 +15,7 @@ def test():
     '''
     runs quick test on status
     '''
-    return '{"status" : "OK"}'
+    return jsonify(status)
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
