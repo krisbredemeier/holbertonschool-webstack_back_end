@@ -6,7 +6,6 @@ from api.v1.views import app_views
 from flask import g
 import os
 from models import db_session
-from flask_swagger import swagger
 app = Flask(__name__)
 
 HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
