@@ -3,7 +3,6 @@ from flask import Flask
 from flask import Blueprint
 from flask import jsonify
 from api.v1.views import app_views
-from flask import g
 import os
 from models import db_session
 app = Flask(__name__)
