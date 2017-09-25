@@ -17,8 +17,6 @@ from api.v1.views import app_views
 from models import User
 from models import db_session
 from flask import abort
-from flask_swagger import swagger
-
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 def access_user():

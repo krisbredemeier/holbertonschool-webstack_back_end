@@ -3,7 +3,6 @@ from flask import Flask
 from flask import jsonify
 from api.v1.views import app_views
 from models import User
-from flask_swagger import swagger
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
