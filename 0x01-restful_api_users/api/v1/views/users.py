@@ -18,17 +18,17 @@ from models import User
 from models import db_session
 from flask import abort
 
+
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 def access_user():
     '''
     list of user
     '''
     users = []
-    user = db_session.query(User).order_by(User.created_at).all()
-    if user is None:
-        return abort(404)
-    else:
-        return jsonify(users)
+    user_array = db_session.query(User).order_by(User.created_at).all()
+    for user_object in user_array:
+        users.append(user_object.to_dict())
+    return jsonify(users)
 
 
 @app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)

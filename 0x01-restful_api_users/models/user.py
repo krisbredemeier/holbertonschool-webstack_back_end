@@ -119,7 +119,11 @@ class User(BaseModel, Base):
             'email': self.email,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'created_at': self.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            'updated_at': self.updated_at.strftime("%Y-%m-%d %H:%M:%S")
         }
         return User
+
+
+
+        "%Y-%m-%d %H:%M:%S"
