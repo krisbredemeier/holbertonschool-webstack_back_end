@@ -15,7 +15,7 @@ def status_code():
     '''
     runs quick test on status
     '''
-    return jsonify(status_code)
+    return jsonify(status="OK")
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
