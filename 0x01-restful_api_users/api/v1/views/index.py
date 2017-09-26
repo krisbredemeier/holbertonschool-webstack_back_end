@@ -11,11 +11,11 @@ from models import User
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
-def test():
+def status_code():
     '''
     runs quick test on status
     '''
-    return jsonify(status)
+    return jsonify(status_code)
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
