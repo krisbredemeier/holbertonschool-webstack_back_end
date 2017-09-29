@@ -7,8 +7,8 @@ to manage the API authentication.
 
 from flask import request
 
-class Auth():
 
+class Auth():
 
     def require_auth(self, path, excluded_paths):
         '''
@@ -18,14 +18,12 @@ class Auth():
         '''
         return False
 
-
     def authorization_header(self, request=None):
         '''
         that returns None -
         request will be the Flask request object
         '''
         return None
-
 
     def current_user(self, request=None):
         '''
