@@ -24,6 +24,7 @@ def page_not_found(e):
     '''
     return jsonify(error="Not found"), 404
 
+
 @app.errorhandler(401)
 def unauthorized(e):
     '''
