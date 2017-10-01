@@ -11,6 +11,7 @@ from api.v1.views import app_views
 import os
 from models import db_session
 from api.v1.auth.auth import Auth
+from api.v1.auth.auth import BasicAuth
 from flask import request
 app = Flask(__name__)
 
@@ -18,7 +19,6 @@ HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
 HBNB_API_HOST = os.environ.get('HBNB_API_HOST')
 app.register_blueprint(app_views)
 
-auth = Auth
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -58,8 +58,10 @@ def before_request():
     '''
     filter each request
     '''
-    # if request.path not in list:
-    #     auth.require_auth(request)
+    if BasicAuth == HBNB_YELP_AUTH:
+        auth = BasicAuth
+    else:
+        auth = Auth
     if not auth.require_auth(request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']):
         return None
     if auth.authorization_header(request)is None:
