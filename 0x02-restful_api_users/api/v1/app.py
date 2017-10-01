@@ -17,7 +17,7 @@ HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
 HBNB_API_HOST = os.environ.get('HBNB_API_HOST')
 app.register_blueprint(app_views)
 
-Auth = auth
+auth = Auth
 
 list = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
 
