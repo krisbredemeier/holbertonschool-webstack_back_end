@@ -59,7 +59,7 @@ def before_request():
     filter each request
     '''
     if request.path not in list:
-        return nothing
+        require_request(auth)
     if auth.authorization_header(request)is None:
         abort(401)
     if auth.current_user(request) is None:
