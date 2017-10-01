@@ -49,6 +49,11 @@ def close_db(error):
     '''
     db_session.remove()
 
+def before_request():
+    '''
+    filter each request
+    '''
+
 
 if __name__ == "__main__":
     app.run(host=HBNB_API_HOST, port=HBNB_API_PORT)
