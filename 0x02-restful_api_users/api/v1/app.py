@@ -20,8 +20,6 @@ app.register_blueprint(app_views)
 
 auth = Auth
 
-list = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
-
 @app.errorhandler(404)
 def page_not_found(e):
     '''
@@ -60,8 +58,10 @@ def before_request():
     '''
     filter each request
     '''
-    if request.path not in list:
-        require_auth(auth)
+    # if request.path not in list:
+    #     auth.require_auth(request)
+    if not auth.require_auth(request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']):
+        return None
     if auth.authorization_header(request)is None:
         abort(401)
     if auth.current_user(request) is None:
