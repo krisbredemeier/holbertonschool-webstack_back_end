@@ -16,20 +16,22 @@ class Auth():
         path and excluded_paths will be used later, now,
         you don't need to take care of them
         '''
-        if path is None or excluded_paths is None or excluded_paths is Null:
+        if path is None or excluded_paths is None:
             return True
         if path in excluded_paths:
             return False
+        else:
+            return True
 
     def authorization_header(self, request=None):
         '''
         that returns None -
         request will be the Flask request object
         '''
-        if resquest is None or Authorization not in request:
+        if resquest is None or requset.header.get('Authorization') is None:
             return None
         else:
-            return(Authorization)
+            return request.heades['Authorization']
 
     def current_user(self, request=None):
         '''
