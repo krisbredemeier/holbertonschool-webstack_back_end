@@ -11,6 +11,7 @@ from api.v1.views import app_views
 import os
 from models import db_session
 from api.v1.auth.auth import Auth
+from flask import request
 app = Flask(__name__)
 
 HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
@@ -52,7 +53,7 @@ def close_db(error):
     Closes the database again at the end of the request.
     '''
     db_session.remove()
-    
+
 
 @app.before_request
 def before_request():
