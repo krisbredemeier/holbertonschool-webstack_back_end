@@ -10,12 +10,16 @@ from flask import jsonify
 from api.v1.views import app_views
 import os
 from models import db_session
+from api.v1.auth.auth import Auth
 app = Flask(__name__)
 
 HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
 HBNB_API_HOST = os.environ.get('HBNB_API_HOST')
 app.register_blueprint(app_views)
 
+Auth = auth
+
+list = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -49,10 +53,18 @@ def close_db(error):
     '''
     db_session.remove()
 
+@app.before_request
 def before_request():
     '''
     filter each request
     '''
+    if request.path not in list:
+        return nothing
+    if auth.authorization_header(request)is None:
+        abort(401)
+    if auth.current_user(request) is None:
+        abort(403)
+
 
 
 if __name__ == "__main__":
