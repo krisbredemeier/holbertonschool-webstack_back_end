@@ -7,6 +7,7 @@ to manage the API authentication.
 
 from flask import request
 from api.v1.auth.auth import Auth
+import re
 
 class BasicAuth():
 
@@ -17,9 +18,9 @@ class BasicAuth():
         '''
         if authorization_header is None:
             return None
-        if not str(authorization_header):
+        if type(authorization_header) != str:
             return None
         if "Basic" not in authorization_header:
             return None
         else:
-            return authorization_header.partition("Basic")
+            return authorization_header.split("Basic")
