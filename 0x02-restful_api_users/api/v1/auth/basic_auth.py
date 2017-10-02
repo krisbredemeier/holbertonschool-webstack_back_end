@@ -19,7 +19,7 @@ class BasicAuth():
             return None
         if not str(authorization_header):
             return None
-        # if "Basic" not in authorization_header:
-        #     return None
+        if "Basic" not in authorization_header:
+            return None
         else:
-            return authorization_header
+            return authorization_header.partition("Basic")
