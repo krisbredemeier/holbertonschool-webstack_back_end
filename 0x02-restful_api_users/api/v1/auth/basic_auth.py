@@ -7,7 +7,8 @@ to manage the API authentication.
 
 from flask import request
 from api.v1.auth.auth import Auth
-import re
+import base64
+
 
 class BasicAuth():
 
@@ -36,8 +37,7 @@ class BasicAuth():
         if type(base64_authorization_header) != str:
             return None
         try:
-            base64_authorization_header
+            if base64.b64decode(base64_authorization_header)
+                return base64.b64decode(base64_authorization_header).decode('utf-8')
         except:
             return None
-        else:
-            return base64_authorization_header.decode('utf-8')
