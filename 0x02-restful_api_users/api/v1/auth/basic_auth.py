@@ -82,3 +82,5 @@ class BasicAuth():
         '''
         overloads Auth and retrieves the User instance for a request:
         '''
+        obj = Auth()
+        obj.User()
