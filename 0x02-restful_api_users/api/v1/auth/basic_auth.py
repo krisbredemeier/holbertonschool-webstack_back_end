@@ -57,3 +57,9 @@ class BasicAuth():
         else:
             short_auth = decoded_base64_authorization_header
             return short_auth.split(":")[0], short_auth.split(":")[-1]
+
+
+    def user_object_from_credentials(self, user_email, user_pwd):
+        '''
+        returns the User instance based on his email and password.
+        '''
