@@ -9,6 +9,7 @@ from flask import request
 from api.v1.auth.auth import Auth
 import base64
 from models import db_session
+from models import User
 
 
 class BasicAuth():
@@ -68,7 +69,7 @@ class BasicAuth():
         if user_email is None or type(user_email) != str:
             return None
         if user_pwd is None or type(user_email) != str:
-            return None:
+            return None
         if user_email not in user:
             return None
         if is_valid_password(user_pwd) not in user:
