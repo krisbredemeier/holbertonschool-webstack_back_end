@@ -8,6 +8,7 @@ to manage the API authentication.
 from flask import request
 from api.v1.auth.auth import Auth
 import base64
+from models import db_session
 
 
 class BasicAuth():
@@ -63,3 +64,14 @@ class BasicAuth():
         '''
         returns the User instance based on his email and password.
         '''
+        user = db_session.query(User).get(user_email)
+        if user_email is None or type(user_email) != str:
+            return None
+        if user_pwd is None or type(user_email) != str:
+            return None:
+        if user_email not in user:
+            return None
+        if is_valid_password(user_pwd) not in user:
+            return None
+        else:
+            return user
