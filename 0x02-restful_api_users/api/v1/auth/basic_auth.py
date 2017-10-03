@@ -28,7 +28,6 @@ class BasicAuth():
         else:
             return authorization_header.split("Basic")[-1]
 
-
     def decode_base64_authorization_header(self, base64_authorization_header):
         '''
         returns the decoded value
@@ -39,11 +38,11 @@ class BasicAuth():
         if type(base64_authorization_header) != str:
             return None
         try:
-            if base64.b64decode(base64_authorization_header):
-                return base64.b64decode(base64_authorization_header).decode('utf-8')
+            b64 = base64.b64decode
+            if b64(base64_authorization_header):
+                return b64(base64_authorization_header).decode('utf-8')
         except:
             return None
-
 
     def extract_user_credentials(self, decoded_base64_authorization_header):
         '''
@@ -60,7 +59,6 @@ class BasicAuth():
             short_auth = decoded_base64_authorization_header
             return short_auth.split(":")[0], short_auth.split(":")[-1]
 
-
     def user_object_from_credentials(self, user_email, user_pwd):
         '''
         returns the User instance based on his email and password.
@@ -76,7 +74,6 @@ class BasicAuth():
             return None
         else:
             return user
-
 
     def current_user(self, request=None):
         '''
