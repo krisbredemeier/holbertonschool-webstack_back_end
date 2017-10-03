@@ -9,6 +9,9 @@ from flask import request
 
 
 class Auth():
+    '''
+    documentation
+    '''
 
     def require_auth(self, path, excluded_paths):
         '''

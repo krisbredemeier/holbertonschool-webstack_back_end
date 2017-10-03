@@ -13,6 +13,9 @@ from models import User
 
 
 class BasicAuth():
+    '''
+    documentation
+    '''
 
     def extract_base64_authorization_header(self, authorization_header):
         '''
