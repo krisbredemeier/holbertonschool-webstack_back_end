@@ -66,14 +66,14 @@ class BasicAuth(Auth):
         '''
         returns the User instance based on his email and password.
         '''
-        user = db_session.query(User).get(user_email)
         if user_email is None or type(user_email) != str:
             return None
         if user_pwd is None or type(user_email) != str:
             return None
-        if user_email not in user:
+        user = db_session.query(User).filter_by(email = user_email).first()
+        if user is None:
             return None
-        if is_valid_password(user_pwd) not in user:
+        if not user.is_valid_password(user_pwd):
             return None
         else:
             return user
