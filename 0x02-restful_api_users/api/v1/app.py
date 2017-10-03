@@ -11,8 +11,9 @@ from api.v1.views import app_views
 import os
 from models import db_session
 from api.v1.auth.auth import Auth
-from api.v1.auth.basic_auth import BasicAuth
+
 from flask import request
+from flask import abort
 app = Flask(__name__)
 
 HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
@@ -58,10 +59,11 @@ def before_request():
     '''
     filter each request
     '''
-    # if BasicAuth == HBNB_YELP_AUTH:
-    #     auth = BasicAuth
-    # else:
-    auth = Auth()
+    if os.environ.get("HBNB_YELP_AUTH") == "basic_auth":
+        from api.v1.auth.basic_auth import BasicAuth
+        auth = BasicAuth()
+    else:
+        auth = Auth()
     if not auth.require_auth(
         request.path,
         ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
