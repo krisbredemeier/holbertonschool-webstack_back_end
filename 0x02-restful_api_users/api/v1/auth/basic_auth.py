@@ -82,9 +82,13 @@ class BasicAuth(Auth):
         '''
         overloads Auth and retrieves the User instance for a request:
         '''
-        obj_user = User()
-        obj_user.authorization_header
-        obj_user.extract_base64_authorization_header
-        obj_user.decode_base64_authorization_header
-        obj_user.extract_user_credentials
-        obj_user.user_object_from_credentials
+        self.authorization_header(request)
+        return request
+        self.extract_base64_authorization_header(authorization_header)
+        return authorization_header
+        self.decode_base64_authorization_header(base64_authorization_header)
+        return base64_authorization_header
+        self.extract_user_credentials(decoded_base64_authorization_header)
+        return decoded_base64_authorization_header
+        self.user_object_from_credentials(user_email, user_pwd)
+        return user_email, user_pwd
