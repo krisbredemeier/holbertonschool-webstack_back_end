@@ -20,6 +20,11 @@ HBNB_API_PORT = os.environ.get('HBNB_API_PORT')
 HBNB_API_HOST = os.environ.get('HBNB_API_HOST')
 app.register_blueprint(app_views)
 
+if os.environ.get("HBNB_YELP_AUTH") == "basic_auth":
+    from api.v1.auth.basic_auth import BasicAuth
+    auth = BasicAuth()
+else:
+    auth = Auth()
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -59,12 +64,6 @@ def before_request():
     '''
     filter each request
     '''
-    if os.environ.get("HBNB_YELP_AUTH") == "basic_auth":
-        from api.v1.auth.basic_auth import BasicAuth
-        auth = BasicAuth()
-    else:
-        auth = Auth()
-
     if not auth.require_auth(
         request.path,
         ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
