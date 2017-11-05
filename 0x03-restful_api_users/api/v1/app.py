@@ -64,6 +64,7 @@ def before_request():
     '''
     filter each request
     '''
+    auth.current_user(request) = request.current_user
     if not auth.require_auth(
         request.path,
         ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
