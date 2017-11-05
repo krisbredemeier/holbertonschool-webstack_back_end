@@ -36,11 +36,16 @@ def user(user_id):
     '''
     update get
     '''
-    user = db_session.query(User).get(user_id)
-    if user is None:
+    if user_id == me and request.current_user is None:
         return abort(404)
+    if user_id == me and request.current_user:
+        return me
     else:
-        return jsonify(user.to_dict())
+        user = db_session.query(User).get(user_id)
+        if user is None:
+            return abort(404)
+        else:
+            return jsonify(user.to_dict())
 
 
 @app_views.route('/users/<user_id>', methods=['DELETE'], strict_slashes=False)
