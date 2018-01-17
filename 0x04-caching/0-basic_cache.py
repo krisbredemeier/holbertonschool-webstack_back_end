@@ -6,6 +6,7 @@ import datetime
 #
 # requests_cache.install_cache('cache_data')
 
+
 class BasicCache(BaseCaching):
     '''
     class that inherits from BaseCaching
@@ -15,13 +16,11 @@ class BasicCache(BaseCaching):
         '''Constructor'''
         self.cache_data = {}
 
-
     def put(self, key, item):
         ''' assign to dictionary'''
         self.cache_data[key] = item
         if self.cache_data[key] is None or item is None:
             return
-
 
     def get(self, key):
         '''return value linked to key '''
