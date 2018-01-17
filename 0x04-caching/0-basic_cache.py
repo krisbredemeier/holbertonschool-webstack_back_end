@@ -1,10 +1,5 @@
 #!/usr/bin/python3
 from base_caching import BaseCaching
-import datetime
-# import requests
-# import requests_cache
-#
-# requests_cache.install_cache('cache_data')
 
 
 class BasicCache(BaseCaching):
@@ -26,5 +21,5 @@ class BasicCache(BaseCaching):
         '''return value linked to key '''
         if key not in self.cache_data:
             return None
-        if self.cache_data[key] is None:
+        if key is None:
             return None
