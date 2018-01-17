@@ -18,12 +18,12 @@ class BasicCache(BaseCaching):
 
     def put(self, key, item):
         ''' assign to dictionary'''
-        self.cache_data[key] = {'value': item}
+        self.cache_data[key] = item
         if self.cache_data[key] is None or item is None:
             return
 
 
     def get(self, key):
         '''return value linked to key '''
-        if self.cashe_data[key] is None or key not in self.cache_data:
+        if self.cache_data[key] is None or key not in self.cache_data:
             return None
