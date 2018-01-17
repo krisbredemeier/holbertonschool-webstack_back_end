@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 from base_caching import BaseCaching
 
+
 class FIFOCache(BaseCaching):
     '''class that inherits from BaseCaching '''
 
     def __init__(self):
         '''Constructor'''
-        self.cache_data = {}
-        self.MAX_ITEMS = len(self.cache_data)
+        # self.cache_data = {}
         super().__init__()
 
     def put(self, key, item):
@@ -31,7 +31,7 @@ class FIFOCache(BaseCaching):
 
     def remove_first(self):
         '''remove the last added entry'''
-        first_entry = list(self.cache_data)[0];
+        first_entry = list(self.cache_data)[0]
         self.cache_data.pop(first_entry)
         print("DISCARD: {}".format(first_entry))
 
