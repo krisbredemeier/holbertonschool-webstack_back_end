@@ -16,7 +16,7 @@ class LIFOCache(BaseCaching):
         self.cache_data[key] = item
         if self.cache_data[key] is None or item is None:
             return
-        if key not in self.cache_data and self.MAX_ITEMS >= current_len
+        if key not in self.cache_data and self.MAX_ITEMS >= current_len:
             self.remove_last()
 
     def get(self, key):
@@ -32,9 +32,9 @@ class LIFOCache(BaseCaching):
         for key in self.cache_data:
             if last_entry is None:
                 last_entry = key
-            elif self.cache_data[key][] < self.cache_data[last_entry][
+            elif self.cache_data[key] < self.cache_data[last_entry][
             'last_entry']:
-            last_entry = key
+                last_entry = key
             self.cache_data.pop(last_entry)
 
     @property
