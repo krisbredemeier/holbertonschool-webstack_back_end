@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from base_caching import BaseCaching
 import datetime
+import caches
 
 
 class BasicCache(BaseCaching):
@@ -16,5 +17,6 @@ class BasicCache(BaseCaching):
         if self.cashe_data[key] is None or key not in self.cache_data:
             return None
 
-
-    
+    def __init__(self):
+        '''Constructor'''
+        self.cashe_data = {}
