@@ -2,7 +2,7 @@
 from base_caching import BaseCaching
 import datetime
 
-class LIFOCache(BaseCaching):
+class FIFOCache(BaseCaching):
     '''class that inherits from BaseCaching '''
 
     def __init__(self):
@@ -17,7 +17,7 @@ class LIFOCache(BaseCaching):
         if self.cache_data[key] is None or item is None:
             return
         if key not in self.cache_data and self.MAX_ITEMS >= current_len:
-            self.remove_last()
+            self.remove_first()
 
     def get(self, key):
         '''return value linked to key'''
@@ -26,16 +26,17 @@ class LIFOCache(BaseCaching):
         if key is None:
             return None
 
-    def remove_last(self):
+    def remove_first(self):
         '''remove the last added entry'''
-        last_entry = None
+        first_entry = None
         for key in self.cache_data:
-            if last_entry is None:
-                last_entry = key
-            elif self.cache_data[key] < self.cache_data[last_entry][
-            'last_entry']:
-                last_entry = key
-            self.cache_data.pop(last_entry)
+            if first_entry is None:
+                first_entry = key
+            elif self.cache_data[key] < self.cache_data[first_entry][
+            'first_entry']:
+                first_entry = key
+            self.cache_data.pop(first_entry)
+            print("DISCARD:{key}")
 
     @property
     def size(self):
