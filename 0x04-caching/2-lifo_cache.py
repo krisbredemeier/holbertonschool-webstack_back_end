@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from base_caching import BaseCaching
-import datetime
+
 
 class LIFOCache(BaseCaching):
     '''class that inherits from BaseCaching '''
@@ -25,6 +25,7 @@ class LIFOCache(BaseCaching):
             return None
         if key is None:
             return None
+        return self.cache_data[key]
 
     def remove_last(self):
         '''remove the last added entry'''
