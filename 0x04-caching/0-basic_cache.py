@@ -15,7 +15,7 @@ class BasicCache(BaseCaching):
         ''' assign to dictionary'''
         self.cache_data[key] = item
         if self.cache_data[key] is None or item is None:
-            return
+            pass
 
     def get(self, key):
         '''return value linked to key '''
@@ -23,3 +23,4 @@ class BasicCache(BaseCaching):
             return None
         if key is None:
             return None
+        return self.cache_data[key]
