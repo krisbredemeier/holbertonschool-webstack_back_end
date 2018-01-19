@@ -26,8 +26,6 @@ class LRUCache(BaseCaching):
         '''return value linked to key'''
         if key not in self.cache_data:
             return None
-        if key is None:
-            return None
         return self.cache_data[key]
 
     def remove_last_used(self):
