@@ -11,6 +11,7 @@ class FIFOCache(BaseCaching):
         self.cache_data = {}
         self.lst = []
 
+
     def put(self, key, item):
         '''set max_items for caching'''
         if not key or not item:
