@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+'''
+implements first in first out caching
+'''
 from base_caching import BaseCaching
 
 
