@@ -12,36 +12,28 @@ class LRUCache(BaseCaching):
     def __init__(self):
         '''Constructor'''
         super().__init__()
-        self.MAX_ITEMS = 4
-
-    def put(self, key, item):
-        '''set max_items for caching'''
-        self.cache_data[key] = {
-            'item': item,
-            'date_used': datetime.datetime.now()
-            }
-        current_len = len(self.cache_data)
-        if key is None or item is None:
-            pass
-        if self.MAX_ITEMS < current_len:
-            self.remove_last_used()
+        self.cache_data = {}
+        self.lst = []
+        self.time = 0
+        self.lru = {}
 
     def get(self, key):
-        '''return value linked to key'''
         if key not in self.cache_data:
             return None
-        return self.cache_data[key]
+        if key in self.cache_data:
+            self.lru[key] =self.time
+            self.time += 1
+            return self.cache_data[key]
 
-    def remove_last_used(self):
-        '''remove the last added entry'''
-        last_used = None
-        for key in self.cache_data:
-            if last_used is None:
-                last_used = key
-            elif self.cache_data[key]['date_used'] < self.cache_data[last_used]['date_used']:
-                    last_used = key
-        self.cache_data.pop(last_used)
-        print("DISCARD: {}".format(last_used))
+    def put(self, key, item):
+        if len(self.cache_data) >= self.MAX_ITEMS:
+            old_key = min(self.lru.keys(), key=lambda k:self.lru[k])
+            self.cache_data.pop(old_key)
+            self.lru.pop(old_key)
+            print("DISCARD: {}".format(key))
+        self.cache_data[key] = item
+        self.lru[key] = self.time
+        self.time +=1
 
     @property
     def size(self):
