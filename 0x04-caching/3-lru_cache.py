@@ -9,6 +9,7 @@ class LRUCache(BaseCaching):
     def __init__(self):
         '''Constructor'''
         super().__init__()
+        self.MAX_ITEMS = 4
 
     def put(self, key, item):
         '''set max_items for caching'''

@@ -10,6 +10,7 @@ class BasicCache(BaseCaching):
     def __init__(self):
         '''Constructor'''
         self.cache_data = {}
+        self.MAX_ITEMS = 4
 
     def put(self, key, item):
         ''' assign to dictionary'''

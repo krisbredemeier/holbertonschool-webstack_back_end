@@ -8,7 +8,7 @@ class LIFOCache(BaseCaching):
     def __init__(self):
         '''Constructor'''
         self.cache_data = {}
-        self.MAX_ITEMS = len(self.cache_data)
+        self.MAX_ITEMS = 4
 
     def put(self, key, item):
         '''set max_items for caching'''
