@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+'''
+implements least recently used caching
+'''
 from base_caching import BaseCaching
 import datetime
 
