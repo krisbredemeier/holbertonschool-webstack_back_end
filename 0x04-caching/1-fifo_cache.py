@@ -8,16 +8,20 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         '''Constructor'''
         super().__init__()
-        self.MAX_ITEMS = 4
+        self.cache_data = {}
+        self.lst = []
 
     def put(self, key, item):
         '''set max_items for caching'''
         if not key or not item:
             pass
+        self.lst.append(key)
         self.cache_data[key] = item
         current_len = len(self.cache_data)
         if current_len > self.MAX_ITEMS:
-            self.remove_first()
+            self.cache_data[self.lst.pop(0)]
+            print("DISCARD: {}".format(key))
+            # self.remove_first()
 
     def get(self, key):
         '''return value linked to key'''
@@ -27,7 +31,7 @@ class FIFOCache(BaseCaching):
 
     def remove_first(self):
         '''remove the last added entry'''
-        first_entry = list(self.cache_data)[0]
+        first_entry = (self.cache_data)[0]
         self.cache_data.pop(first_entry)
         print("DISCARD: {}".format(first_entry))
 
