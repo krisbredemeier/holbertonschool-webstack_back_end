@@ -17,7 +17,7 @@ class FIFOCache(BaseCaching):
         if not key or not item:
             pass
         self.cache_data[key] = item
-        if self.MAX_ITEMS < current_len:
+        if current_len > self.MAX_ITEMS:
             self.remove_first()
 
     def get(self, key):

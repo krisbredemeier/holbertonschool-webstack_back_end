@@ -15,6 +15,8 @@ class BasicCache(BaseCaching):
         ''' assign to dictionary'''
         if key is None or item is None:
             pass
+        if not key or not item:
+            pass
         self.cache_data[key] = item
 
     def get(self, key):
