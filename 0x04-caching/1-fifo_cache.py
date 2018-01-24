@@ -11,12 +11,10 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         '''set max_items for caching'''
-        current_len = len(self.cache_data)
-        if key is None or item is None:
-            pass
         if not key or not item:
             pass
         self.cache_data[key] = item
+        current_len = len(self.cache_data)
         if current_len > self.MAX_ITEMS:
             self.remove_first()
 
