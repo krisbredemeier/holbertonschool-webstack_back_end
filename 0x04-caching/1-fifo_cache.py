@@ -16,6 +16,7 @@ class FIFOCache(BaseCaching):
         if not key or not item:
             pass
         self.lst.append(key)
+        print(self.lst)
         self.cache_data[key] = item
         if len(self.lst) > self.MAX_ITEMS:
             self.cache_data[self.lst.pop(0)]
@@ -26,8 +27,6 @@ class FIFOCache(BaseCaching):
         '''return value linked to key'''
         if key not in self.cache_data:
             return None
-        self.lst.rmeove(key)
-        self.cache_data.pop(key)
         return self.cache_data[key]
 
     def remove_first(self):
