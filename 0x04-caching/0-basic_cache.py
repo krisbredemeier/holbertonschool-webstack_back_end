@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+'''
+this will form the base for the rest of the project
+'''
 from base_caching import BaseCaching
-'''
-test
-'''
+
 
 class BasicCache(BaseCaching):
     '''
