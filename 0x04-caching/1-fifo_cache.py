@@ -14,12 +14,12 @@ class FIFOCache(BaseCaching):
         self.cache_data = {}
         self.lst = []
 
-
     def put(self, key, item):
         '''set max_items for caching'''
         if not key or not item:
             pass
-        self.lst.append(key)
+        if key not in self.cache_data:
+            self.lst.append(key)
         self.cache_data[key] = item
         if len(self.lst) > self.MAX_ITEMS:
             remove = self.lst.pop(0)
