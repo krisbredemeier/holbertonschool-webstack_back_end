@@ -10,6 +10,7 @@ class LIFOCache(BaseCaching):
 
     def __init__(self):
         '''Constructor'''
+        super().__init__()
         self.cache_data = {}
         self.lst = []
 
@@ -17,18 +18,23 @@ class LIFOCache(BaseCaching):
         '''set max_items for caching'''
         if not key or not item:
             pass
-        self.lst.append(key)
+        if key not in self.cache_data:
+            self.lst.append(key)
         self.cache_data[key] = item
         if len(self.lst) > self.MAX_ITEMS:
-            remove = self.lst.pop(3)
-            del self.cache_data[remove]
-            print("DISCARD: {}".format(remove))
+            self.remove()
 
     def get(self, key):
         '''return value linked to key'''
         if key not in self.cache_data:
             return None
         return self.cache_data[key]
+
+    def remove(self):
+        ''' remove item function'''
+        remove = self.lst.pop(3)
+        del self.cache_data[remove]
+        print("DISCARD: {}".format(remove))
 
     @property
     def size(self):
