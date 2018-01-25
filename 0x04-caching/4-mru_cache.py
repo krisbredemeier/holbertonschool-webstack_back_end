@@ -28,9 +28,9 @@ class MRUCache(BaseCaching):
             return self.cache_data[key]
 
     def put(self, key, item):
-        '''pop out item that is least recently used '''
+        '''pop out item that is most recently used '''
         if len(self.cache_data) >= self.MAX_ITEMS:
-            '''return the smallest of old_key arguments'''
+            '''return the max of old_key arguments'''
             old_key = max(self.lru.keys(), key=lambda k: self.lru[k])
             self.cache_data.pop(old_key)
             self.lru.pop(old_key)
