@@ -15,14 +15,14 @@ class MRUCache(BaseCaching):
         self.cache_data = {}
         self.lst = []
         self.time = 0
-        self.lru = {}
+        self.mru = {}
 
     def get(self, key):
         '''set last used stamp starting from 0 for each item used '''
         if key not in self.cache_data:
             return None
         if key in self.cache_data:
-            self.lru[key] = self.time
+            self.mru[key] = self.time
             '''keep track of when key was used'''
             self.time += 1
             return self.cache_data[key]
@@ -31,12 +31,12 @@ class MRUCache(BaseCaching):
         '''pop out item that is most recently used '''
         if len(self.cache_data) >= self.MAX_ITEMS:
             '''return the max of old_key arguments'''
-            old_key = max(self.lru.keys(), key=lambda k: self.lru[k])
+            old_key = max(self.mru.keys(), key=lambda k: self.mru[k])
             self.cache_data.pop(old_key)
-            self.lru.pop(old_key)
+            self.mru.pop(old_key)
             print("DISCARD: {}".format(old_key))
         self.cache_data[key] = item
-        self.lru[key] = self.time
+        self.mru[key] = self.time
         self.time += 1
 
     @property
