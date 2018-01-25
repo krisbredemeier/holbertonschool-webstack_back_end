@@ -12,36 +12,32 @@ class MRUCache(BaseCaching):
     def __init__(self):
         '''Constructor'''
         super().__init__()
-        self.MAX_ITEMS = 4
-
-    def put(self, key, item):
-        '''set max_items for caching'''
-        self.cache_data[key] = {
-            'item': item,
-            'date_used': datetime.datetime.now()
-            }
-        current_len = len(self.cache_data)
-        if key is None or item is None:
-            pass
-        if self.MAX_ITEMS < current_len:
-            self.remove_most_recently_used()
+        self.cache_data = {}
+        self.lst = []
+        self.time = 0
+        self.lru = {}
 
     def get(self, key):
-        '''return value linked to key'''
+        '''set last used stamp starting from 0 for each item used '''
         if key not in self.cache_data:
             return None
-        return self.cache_data[key]
+        if key in self.cache_data:
+            self.lru[key] = self.time
+            '''keep track of when key was used'''
+            self.time += 1
+            return self.cache_data[key]
 
-    def remove_most_recently_used(self):
-        '''remove the last added entry'''
-        most_recently_used = None
-        for key in self.cache_data:
-            if most_recently_used is None:
-                most_recently_used = key
-            elif self.cache_data[key]['date_used'] > self.cache_data[most_recently_used]['date_used']:
-                    most_recently_used = key
-        self.cache_data.pop(most_recently_used)
-        print("DISCARD: {}".format(most_recently_used))
+    def put(self, key, item):
+        '''pop out item that is least recently used '''
+        if len(self.cache_data) >= self.MAX_ITEMS:
+            '''return the smallest of old_key arguments'''
+            old_key = max(self.lru.keys(), key=lambda k: self.lru[k])
+            self.cache_data.pop(old_key)
+            self.lru.pop(old_key)
+            print("DISCARD: {}".format(old_key))
+        self.cache_data[key] = item
+        self.lru[key] = self.time
+        self.time += 1
 
     @property
     def size(self):
