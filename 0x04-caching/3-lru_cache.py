@@ -18,6 +18,7 @@ class LRUCache(BaseCaching):
         self.lru = {}
 
     def get(self, key):
+        '''set time stamp for each item used '''
         if key not in self.cache_data:
             return None
         if key in self.cache_data:
@@ -26,11 +27,12 @@ class LRUCache(BaseCaching):
             return self.cache_data[key]
 
     def put(self, key, item):
+        '''pop out item that is least recently used '''
         if len(self.cache_data) >= self.MAX_ITEMS:
             old_key = min(self.lru.keys(), key=lambda k:self.lru[k])
             self.cache_data.pop(old_key)
             self.lru.pop(old_key)
-            print("DISCARD: {}".format(key))
+            print("DISCARD: {}".format(old_key))
         self.cache_data[key] = item
         self.lru[key] = self.time
         self.time +=1
