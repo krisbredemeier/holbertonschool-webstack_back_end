@@ -1,1 +1,6 @@
-db.collection.insertOne()
+db.collection.insertOne(
+	name = "Holberton school"
+	{
+		writeConern: name
+	}
+)
