@@ -5,4 +5,4 @@ db = Client.admin
 
 def list_all(mongo_collection):
     lst_all = db.school.find()
-    return (lst_all)
+    print (lst_all)
