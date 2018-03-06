@@ -22,4 +22,4 @@ if __name__ == "__main__":
     ''' log methods '''
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for method in methods:
-        print("Methods: /n/t method {}: {} ".format(method, count_by_method(nginx, method)))
+        print("Methods: \n\t method {}: {} ".format(method, count_by_method(nginx, method)))
