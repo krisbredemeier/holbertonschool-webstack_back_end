@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 from pymongo import MongoClient
-Client = MongoClient('mongodb://127.0.0.1:27017')
-db = Client.admin
+client = MongoClient('mongodb://127.0.0.1:27017')
+
 
 def list_all(mongo_collection):
-    lst_all = db.school.find()
+    db = client.school
+    lst_all = db.school.find({"name": "Holberton school"})
     print (lst_all)
