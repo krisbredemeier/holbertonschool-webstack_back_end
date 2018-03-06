@@ -7,4 +7,7 @@ import pymongo
 
 def top_students(mongo_collection):
     ''' sort students by score '''
-    return mongo_collection.find().sort({ "score": pymongo.ASCENDING })
+    for score in mongo_collection.find({ "score": score }):
+        ''' add the scores and dive by total for average '''
+
+    return mongo_collection.find().sort({ "averageScorescore": pymongo.ASCENDING })
