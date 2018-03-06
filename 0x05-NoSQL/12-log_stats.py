@@ -18,8 +18,8 @@ if __name__ == "__main__":
     ''' database is logs and collection is nginx '''
     nginx = client.logs.nginx
     ''' count nginx logs '''
-    print("{} logs".format(count(nginx))
+    print("{} logs".format(count(nginx)))
     ''' log methods '''
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for method in methods:
-        print("Methods: /n/t method {}: {} ".format(method))
+        print("Methods: /n/t method {}: {} ".format(method, count_by_method(nginx, method)))
