@@ -1,10 +1,14 @@
 #!/usr/bin/python3
 from pymongo import MongoClient
-client = MongoClient('mongodb://127.0.0.1:27017')
 
 
 def list_all(mongo_collection):
-    db = client.school
-    documents = db.school.find()
-    for document in documents:
-        print (document)
+    # db = client.school
+    # documents = db.school.find()
+    # for document in documents:
+    #     print (document)
+    total_count = mongo_collection.count
+    if total_count == 0:
+        print("this collection is empty")
+    else:
+        return mongo_collection.find()
