@@ -24,4 +24,4 @@ if __name__ == "__main__":
     print("Methods:")
     for method in methods:
         print("\t method {}: {} ".format(method, count_by_method(nginx, method)))
-    print("{} status check".format())
+    print("{} status check".format(count(nginx)))
