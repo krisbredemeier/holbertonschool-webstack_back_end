@@ -9,15 +9,15 @@ import pprint
 
 def top_students(mongo_collection):
     ''' sort students by score '''
-    # return mongo_collection.aggregate([{
-        pipeling = [
-            {"$unwind": "$topics"},
-            { "$group": {
-                "_id": "$name",
-                "each_score": {"$avg"["$topics.socre"]}
-                }
-        ]
-
-        mongo_collection('aggregate', pipeline=pipeline, explain=True)
+    pipeline = [
+        {"$unwind": "$topics"},
+        { "$group": {
+            "_id": "$name",
+            "each_score": {"$avg"["$topics.socre"]}
+            }}
+    ]
+    pprint.pprint (list(mongo_collection.things.aggregate(pipeline)))
+    # [{u'_id': u'score'}]
+    mongo_collection.command('aggregate', 'things', pipeline=pipeline, explain=True)
         # }])
     # return mongo_collection.find().sort({ "averageScore": pymongo.ASCENDING })
