@@ -12,12 +12,12 @@ def top_students(mongo_collection):
     pipeline = [
         {"$unwind": "$topics"},
         { "$group": {
-            "_id": "$name",
-            "each_score": {"$avg"["$topics.socre"]}
-            }}
+            "_id": "$score",
+            "count": {"$sum": 1}}},
+            # "each_score": {"$avg"["$topics.socre"]}
+        {"$sort": SON([("count", -1), ("_id", -1)])}
     ]
     pprint.pprint (list(mongo_collection.things.aggregate(pipeline)))
-    # [{u'_id': u'score'}]
-    mongo_collection.command('aggregate', 'things', pipeline=pipeline, explain=True)
+    # mongo_collection.command('aggregate', 'things', pipeline=pipeline, explain=True)
         # }])
     # return mongo_collection.find().sort({ "averageScore": pymongo.ASCENDING })
