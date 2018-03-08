@@ -3,11 +3,21 @@
 Write a Python function that returns all students sorted by average score
 '''
 from pymongo import MongoClient
+from bson.son import SON
 import pymongo
+import pprint
 
 def top_students(mongo_collection):
     ''' sort students by score '''
-    for score in mongo_collection.find({ "score": score }):
-        ''' add the scores and dive by total for average '''
+    # return mongo_collection.aggregate([{
+        pipeling = [
+            {"$unwind": "$topics"},
+            { "$group": {
+                "_id": "$name",
+                "each_score": {"$avg"["$topics.socre"]}
+                }
+        ]
 
-    return mongo_collection.find().sort({ "averageScorescore": pymongo.ASCENDING })
+        mongo_collection('aggregate', pipeline=pipeline, explain=True)
+        # }])
+    # return mongo_collection.find().sort({ "averageScore": pymongo.ASCENDING })

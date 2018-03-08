@@ -6,10 +6,10 @@ stats about Nginx logs stored in MongoDB
 from pymongo import MongoClient
 
 def count(mongo_collection):
-    mongo_collection.count()
+    return mongo_collection.count()
 
 def count_by_method(mongo_collection, method):
-    mongo_collection.count({ "method": method })
+    return mongo_collection.count({ "method": method })
 
 
 ''' estiablish db connection and MongoClient '''
