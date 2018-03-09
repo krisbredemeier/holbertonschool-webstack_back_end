@@ -7,5 +7,5 @@ from pymongo import MongoClient
 
 def insert_school(mongo_collection, **kwargs):
     ''' return new id'''
-    mongo_collection.insert(kwargs)
-    return mongo_collection.new_school_id
+    return mongo_collection.insert(kwargs)
+    # return mongo_collection.new_school_id
