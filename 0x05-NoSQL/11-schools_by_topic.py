@@ -12,4 +12,4 @@ def schools_by_topic(mongo_collection, topic):
         # print("this collection is empty")
         return []
     else:
-        return mongo_collection.find({"topic": topic})
+        return mongo_collection.find({"topics": {"$eq": topic}})
