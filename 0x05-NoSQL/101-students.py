@@ -15,7 +15,7 @@ def top_students(mongo_collection):
             "_id": "$score",
             "count": {"$avg": "$topics.score"}}},
             # "each_score": {"$avg"["$topics.socre"]}
-        {"$sort": SON([("count", -1), ("_id", -1)])}
+        {"$sort": {"count", -1}}
     ]
     pprint.pprint (list(mongo_collection.aggregate(pipeline)))
     # mongo_collection.command('aggregate', 'things', pipeline=pipeline, explain=True)
