@@ -12,7 +12,7 @@ def top_students(mongo_collection):
     pipeline = [
         {"$unwind": "$topics"},
         { "$group": {
-            "_id": "_id",
+            "_id": "$_id",
             "count": {"$avg": "$topics.score"}}},
             # "each_score": {"$avg"["$topics.socre"]}
         {"$sort": {"count": -1}}
