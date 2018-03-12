@@ -13,6 +13,7 @@ def top_students(mongo_collection):
         {"$unwind": "$topics"},
         { "$group": {
             "_id": "$_id",
+            "name": {"$student": "$name"},
             "count": {"$avg": "$topics.score"}}},
             # "each_score": {"$avg"["$topics.socre"]}
         {"$sort": {"count": -1}}
